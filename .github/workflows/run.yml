@@ -29,8 +29,8 @@ jobs:
           DOMAINS: ${{ secrets.DOMAINSV6 }}
           SECRETID: ${{ secrets.SECRETID }}
           SECRETKEY: ${{ secrets.SECRETKEY }}
-      - run: python cf2dns_actions.py AAAA
-	    - name: 'run cf2dns v4'
+        run: python cf2dns_actions.py AAAA
+      - name: 'run cf2dns v4'
          if: env.UPDATE_IPV4 == 'true' && !cancelled()
          env:
            KEY: ${{ secrets.KEY }}
